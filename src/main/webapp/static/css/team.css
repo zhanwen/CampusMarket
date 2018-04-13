@@ -1,0 +1,22 @@
+.teamTitle{
+    color: #1e98db;
+    font-size: 23px;
+    display: inline-block;
+    font-family: "Songti SC"
+}
+.icon{
+    font-size: 20px;
+    color: #1e98db;
+    size: 20px;
+}
+
+.master .grade2 {
+    display: block;
+    padding: 2px 2px;
+    width: 444px;
+    line-height: 27px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: normal;
+    color: #5e5e5e;
+}

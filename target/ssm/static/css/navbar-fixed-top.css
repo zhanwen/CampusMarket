@@ -1,0 +1,34 @@
+body {
+  min-height: 2000px;
+  padding-top: 70px;
+}
+
+.spantitle{
+  padding-top: 20px;
+}
+
+
+.carousel-example-generic{
+
+}
+
+.st{
+  color: #5e5e5e;
+}
+.btnwen {
+  color: #4f4f4f;
+}
+.plinks a{
+  margin-right: 100px;
+  margin-top: 20px;
+}
+.a1{
+  padding-left: 100px;
+}
+/*.centerinfo .divfl .imgfl{*/
+/*}*/
+/*.centerinfo .divfl .spantitle{*/
+  /*display: block;*/
+  /*float: right;*/
+/*}*/
+
