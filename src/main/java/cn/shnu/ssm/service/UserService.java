@@ -8,6 +8,6 @@ import cn.shnu.ssm.pojo.User;
  */
 public interface UserService {
 
-    User findUser(String studentNo)throws Exception;
+    User findUser()throws Exception;
 
 }
