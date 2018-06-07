@@ -91,8 +91,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </div>
                                 </ul>
                             </li>
-                            <li class="dropdown">
-                            <li ><a href="${pageContext.request.contextPath}/views/managecenter">管理中心</a></li> <!--管里中心连接到 “管里中心页面”，能够修改商品状态-->
+                            <li>
+                                <c:if test="${sessionScope.user == null}">
+                                    <a href="${pageContext.request.contextPath}/views/login">管理中心</a>
+                                </c:if>
+                                <c:if test="${sessionScope.user != null}">
+                                    <a href="${pageContext.request.contextPath}/views/managecenter">管理中心</a>
+                                </c:if>
+
                             </li>
                             <!--<li><a href="short-codes.html">个人中心</a></li>-->
                         </ul>
@@ -157,16 +163,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <p class="est animated wow zoomIn" data-wow-delay=".5s">Describe the details of the goods.</p>
         <div class="login-form-grids"><!--login-form-grids-->
             <h5 class="" data-wow-delay=".5s">商品信息</h5>
-            <form class="" data-wow-delay=".5s" method="post" enctype="multipart/form-data">
+            <form action="${pageContext.request.getContextPath()}/goods/insertGoods" class="" data-wow-delay=".5s" method="post" enctype="multipart/form-data">
                 <table border="0" align="center" style="border-collapse:separate; border-spacing:25px;">
-                    <tr><td>商品名称</td><td><input align="center" type="text" name="shangpinmingcheng"></td></tr>
-                    <tr><td>商品价格</td><td><input align="center" type="text" name="price"></td></tr>
-                    <tr><td>商品概述</td><td><input align="center" type="text" name="details"></td></tr>
-                    <tr><td colspan="2">上传照片<input value="file" type="file" name="file" ></td></tr>
+                    <tr><td>商品名称</td><td><input align="center" type="text" name="goodsName" id="goodsName"></td></tr>
+                    <tr><td>商品价格</td><td><input align="center" type="text" name="price" id="price"></td></tr>
+                    <tr><td>商品概述</td><td><input align="center" type="text" name="description" id="description"></td></tr>
+                    <tr><td>新旧程度</td><td><input align="center" type="text" name="degree" id="degree"></td></tr>
+                    <tr>
+
+                        <td>商品分类</td>
+                        <td>
+                            <select id="cate" name="cate" align="center">
+                                <option value="1">图书书籍</option>
+                                <option value="2">日用百货</option>
+                                <option value="3">娱乐</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr><td colspan="2">上传照片<input value="file" type="file" name="file" id="file"></td></tr>
                     <tr>
                         <td colspan="2">
                             <input type="submit" value="提     交">
-                            <input type="submit" value="取     消" onclick="javascript:window.location='.jsp';">
+                            <%--<input type="submit" value="取     消" onclick="javascript:window.history.back()">--%>
                         </td>
                     </tr>
                 </table>

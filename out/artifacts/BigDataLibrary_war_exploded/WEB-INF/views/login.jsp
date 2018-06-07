@@ -126,8 +126,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </div>
                                 </ul>
                             </li>
-                            <li class="dropdown">
-                            <li ><a href="${pageContext.request.contextPath}/views/managecenter">管理中心</a></li> <!--管里中心连接到 “管里中心页面”，能够修改商品状态-->
+                            <li>
+                                <c:if test="${sessionScope.user == null}">
+                                    <a href="${pageContext.request.contextPath}/views/login">管理中心</a>
+                                </c:if>
+                                <c:if test="${sessionScope.user != null}">
+                                    <a href="${pageContext.request.contextPath}/views/managecenter">管理中心</a>
+                                </c:if>
+
                             </li>
                             <!--<li><a href="short-codes.html">个人中心</a></li>-->
                         </ul>
@@ -263,7 +269,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
         <div class="copy-right animated wow slideInUp" data-wow-delay=".5s">
             <p>Copyright &copy; 2018.Company name All rights reserved.
-                <a href="${pageContext.request.contextPath}/views/index.jsp" target="_blank" title="GoodsWill">GoodsWill</a>
+                <a href="${pageContext.request.contextPath}/views/index" target="_blank" title="GoodsWill">GoodsWill</a>
         </div>
     </div>
 </div>

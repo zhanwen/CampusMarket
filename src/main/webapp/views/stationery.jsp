@@ -48,7 +48,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="container">
         <div class="logo-nav">
             <div class="logo-nav-left animated wow zoomIn" data-wow-delay=".5s">
-                <h1><a href="${pageContext.request.contextPath}/index.jsp">GoodsWill <span>Shop anywhere</span></a></h1>
+                <h1><a href="${pageContext.request.contextPath}/views/index">GoodsWill <span>Shop anywhere</span></a></h1>
             </div>
             <div class="logo-nav-left1">
                 <nav class="navbar navbar-default">
@@ -63,7 +63,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="${pageContext.request.contextPath}/index.jsp" class="act">主页</a></li>
+                            <li class="active"><a href="${pageContext.request.contextPath}/index" class="act">主页</a></li>
                             <!-- Mega Menu -->
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">商品分类 <b class="caret"></b></a>
@@ -72,32 +72,38 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <div class="col-sm-4">
                                             <ul class="multi-column-dropdown">
                                                 <h6>图书书籍</h6>
-                                                <li><a href="${pageContext.request.contextPath}/views/books.jsp">教材</a></li>
-                                                <li><a href="${pageContext.request.contextPath}/views/tests.jsp">考试</a></li>
-                                                <li><a href="${pageContext.request.contextPath}/views/literature.jsp">艺术文学</a></li>
+                                                <li><a href="${pageContext.request.contextPath}/views/books">教材</a></li>
+                                                <li><a href="${pageContext.request.contextPath}/views/tests">考试</a></li>
+                                                <li><a href="${pageContext.request.contextPath}/views/literature">艺术文学</a></li>
                                             </ul>
                                         </div>
                                         <div class="col-sm-4">
                                             <ul class="multi-column-dropdown">
                                                 <h6>日用百货</h6>
-                                                <li><a href="${pageContext.request.contextPath}/views/sports.jsp">运动类</a></li>
-                                                <li><a href="${pageContext.request.contextPath}/views/stationery.jsp">文具类</a></li>
-                                                <li><a href="${pageContext.request.contextPath}/views/life.jsp">生活类</a></li>
+                                                <li><a href="${pageContext.request.contextPath}/views/sports">运动类</a></li>
+                                                <li><a href="${pageContext.request.contextPath}/views/stationery">文具类</a></li>
+                                                <li><a href="${pageContext.request.contextPath}/views/life">生活类</a></li>
                                             </ul>
                                         </div>
                                         <div class="col-sm-4">
                                             <ul class="multi-column-dropdown">
                                                 <h6>娱乐</h6>
-                                                <li><a href="${pageContext.request.contextPath}/views/beautymakeup.jsp">美妆</a></li>
-                                                <li><a href="${pageContext.request.contextPath}/views/electronicproducts.jsp">电子产品</a></li>
+                                                <li><a href="${pageContext.request.contextPath}/views/beautymakeup">美妆</a></li>
+                                                <li><a href="${pageContext.request.contextPath}/views/electronicproducts">电子产品</a></li>
                                             </ul>
                                         </div>
                                         <div class="clearfix"></div>
                                     </div>
                                 </ul>
                             </li>
-                            <li class="dropdown">
-                            <li ><a href="${pageContext.request.contextPath}/index.jsp">管理中心</a></li> <!--管里中心连接到 “管里中心页面”，能够修改商品状态-->
+                            <li>
+                                <c:if test="${sessionScope.user == null}">
+                                    <a href="${pageContext.request.contextPath}/views/login">管理中心</a>
+                                </c:if>
+                                <c:if test="${sessionScope.user != null}">
+                                    <a href="${pageContext.request.contextPath}/views/managecenter">管理中心</a>
+                                </c:if>
+
                             </li>
                             <!--<li><a href="short-codes.html">个人中心</a></li>-->
                         </ul>
@@ -149,7 +155,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="breadcrumbs">
     <div class="container">
         <ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
-            <li><a href="${pageContext.request.contextPath}/index.jsp"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>主页</a></li>
+            <li><a href="${pageContext.request.contextPath}/views/index"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>主页</a></li>
             <li class="active">商品分类</li>
             <li class="active">文具类</li>
         </ol>
@@ -173,10 +179,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         min: 0,
                         max: 100000,
                         values: [ 20000, 80000 ],
-                        slide: function( event, ui ) {  $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+                        slide: function( event, ui ) {  $( "#amount" ).val( "" + ui.values[ 0 ] + " - " + ui.values[ 1 ] );
                         }
                     });
-                    $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) + " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+                    $( "#amount" ).val( "" + $( "#slider-range" ).slider( "values", 0 ) + " - " + $( "#slider-range" ).slider( "values", 1 ) );
 
 
                 });//]]>
@@ -190,20 +196,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <ul class="cate">
                     <li><a href="${pageContext.request.contextPath}/views/">图书书籍</a> <span>(33)</span></li>
                     <ul>
-                        <li><a href="${pageContext.request.contextPath}/views/books.jsp">教材</a> <span>(15)</span></li>
-                        <li><a href="${pageContext.request.contextPath}/views/tests.jsp">考试</a> <span>(9)</span></li>
-                        <li><a href="${pageContext.request.contextPath}/views/literature.jsp">文学</a> <span>(9)</span></li>
+                        <li><a href="${pageContext.request.contextPath}/views/books">教材</a> <span>(15)</span></li>
+                        <li><a href="${pageContext.request.contextPath}/views/tests">考试</a> <span>(9)</span></li>
+                        <li><a href="${pageContext.request.contextPath}/views/literature">文学</a> <span>(9)</span></li>
                     </ul>
                     <li><a href="${pageContext.request.contextPath}/views">日用百货</a> <span>(36)</span></li>
                     <ul>
-                        <li><a href="${pageContext.request.contextPath}/views/sports.jsp">运动类</a> <span>(12)</span></li>
-                        <li><a href="${pageContext.request.contextPath}/views/stationery.jsp">文具类</a> <span>(9)</span></li>
-                        <li><a href="${pageContext.request.contextPath}/views/life.jsp">生活类</a> <span>(15)</span></li>
+                        <li><a href="${pageContext.request.contextPath}/views/sports">运动类</a> <span>(12)</span></li>
+                        <li><a href="${pageContext.request.contextPath}/views/stationery">文具类</a> <span>(9)</span></li>
+                        <li><a href="${pageContext.request.contextPath}/views/life">生活类</a> <span>(15)</span></li>
                     </ul>
                     <li><a href="${pageContext.request.contextPath}/views/">娱乐</a> <span>(24)</span></li>
                     <ul>
-                        <li><a href="${pageContext.request.contextPath}/views/beautymakeup.jsp">美妆</a> <span>(15)</span></li>
-                        <li><a href="${pageContext.request.contextPath}/views/electronicproducts.jsp">电子产品</a> <span>(9)</span></li>
+                        <li><a href="${pageContext.request.contextPath}/views/beautymakeup">美妆</a> <span>(15)</span></li>
+                        <li><a href="${pageContext.request.contextPath}/views/electronicproducts">电子产品</a> <span>(9)</span></li>
                     </ul>
                 </ul>
             </div>
@@ -213,10 +219,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="new-products-grids">
                     <div class="new-products-grid">
                         <div class="new-products-grid-left">
-                            <a href="single.html"><img src="${pageContext.request.contextPath}/static/images/wj1.jpg" alt=" " class="img-responsive" /></a>
+                            <a href="${pageContext.request.contextPath}/views/single?goodsId=5"><img src="${pageContext.request.contextPath}/static/images/wj1.jpg" alt=" " class="img-responsive" /></a>
                         </div>
                         <div class="new-products-grid-right">
-                            <h4><a href="single.html">中性笔</a></h4>
+                            <h4><a href="${pageContext.request.contextPath}/views/single?goodsId=5">中性笔</a></h4>
                             <div class="rating">
                                 <div class="rating-left">
                                     <img src="${pageContext.request.contextPath}/static/images/2.png" alt=" " class="img-responsive">
@@ -236,17 +242,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="clearfix"> </div>
                             </div>
                             <div class="simpleCart_shelfItem new-products-grid-right-add-cart">
-                                <p> <span class="item_price">￥10</span><a class="item_add" href="#">add to cart </a></p>
+                                <p> <span class="item_price">￥10</span><a class="item_add" href="#">立即查看 </a></p>
                             </div>
                         </div>
                         <div class="clearfix"> </div>
                     </div>
                     <div class="new-products-grid">
                         <div class="new-products-grid-left">
-                            <a href="single.html"><img src="${pageContext.request.contextPath}/static/images/wj6.jpg" alt=" " class="img-responsive" /></a>
+                            <a href="${pageContext.request.contextPath}/views/single?goodsId=5"><img src="${pageContext.request.contextPath}/static/images/wj6.jpg" alt=" " class="img-responsive" /></a>
                         </div>
                         <div class="new-products-grid-right">
-                            <h4><a href="single.html">剪刀</a></h4>
+                            <h4><a href="${pageContext.request.contextPath}/views/single?goodsId=5">剪刀</a></h4>
                             <div class="rating">
                                 <div class="rating-left">
                                     <img src="${pageContext.request.contextPath}/static/images/2.png" alt=" " class="img-responsive">
@@ -266,17 +272,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="clearfix"> </div>
                             </div>
                             <div class="simpleCart_shelfItem new-products-grid-right-add-cart">
-                                <p> <span class="item_price">￥10</span><a class="item_add" href="#">add to cart </a></p>
+                                <p> <span class="item_price">￥10</span><a class="item_add" href="#">立即查看 </a></p>
                             </div>
                         </div>
                         <div class="clearfix"> </div>
                     </div>
                     <div class="new-products-grid">
                         <div class="new-products-grid-left">
-                            <a href="single.html"><img src="${pageContext.request.contextPath}/static/images/wj13.jpg" alt=" " class="img-responsive" /></a>
+                            <a href="${pageContext.request.contextPath}/views/single?goodsId=5"><img src="${pageContext.request.contextPath}/static/images/wj13.jpg" alt=" " class="img-responsive" /></a>
                         </div>
                         <div class="new-products-grid-right">
-                            <h4><a href="single.html">胶水</a></h4>
+                            <h4><a href="${pageContext.request.contextPath}/views/single?goodsId=5">胶水</a></h4>
                             <div class="rating">
                                 <div class="rating-left">
                                     <img src="${pageContext.request.contextPath}/static/images/2.png" alt=" " class="img-responsive">
@@ -296,7 +302,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="clearfix"> </div>
                             </div>
                             <div class="simpleCart_shelfItem new-products-grid-right-add-cart">
-                                <p> <span class="item_price">￥4</span><a class="item_add" href="#">add to cart </a></p>
+                                <p> <span class="item_price">￥4</span><a class="item_add" href="#">立即查看 </a></p>
                             </div>
                         </div>
                         <div class="clearfix"> </div>
@@ -304,10 +310,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <!--
                     <div class="new-products-grid">
                         <div class="new-products-grid-left">
-                            <a href="single.html"><img src="${pageContext.request.contextPath}/static/images/6.jpg" alt=" " class="img-responsive" /></a>
+                            <a href="${pageContext.request.contextPath}/views/single?goodsId=5"><img src="${pageContext.request.contextPath}/static/images/6.jpg" alt=" " class="img-responsive" /></a>
                         </div>
                         <div class="new-products-grid-right">
-                            <h4><a href="single.html">occaecat cupidatat</a></h4>
+                            <h4><a href="${pageContext.request.contextPath}/views/single?goodsId=5">occaecat cupidatat</a></h4>
                             <div class="rating">
                                 <div class="rating-left">
                                     <img src="${pageContext.request.contextPath}/static/images/2.png" alt=" " class="img-responsive">
@@ -327,7 +333,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="clearfix"> </div>
                             </div>
                             <div class="simpleCart_shelfItem new-products-grid-right-add-cart">
-                                <p> <span class="item_price">$180</span><a class="item_add" href="#">add to cart </a></p>
+                                <p> <span class="item_price">$180</span><a class="item_add" href="#">立即查看 </a></p>
                             </div>
                         </div>
                         <div class="clearfix"> </div>
@@ -336,7 +342,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
 
             <div class="men-position animated wow slideInUp" data-wow-delay=".5s">
-                <a href="single.html"><img src="${pageContext.request.contextPath}/static/images/27.jpg" alt=" " class="img-responsive" /></a>
+                <a href="${pageContext.request.contextPath}/views/single?goodsId=5"><img src="${pageContext.request.contextPath}/static/images/27.jpg" alt=" " class="img-responsive" /></a>
                 <div class="men-position-pos">
                     <h4>上海师范大学</h4>
                     <h5><span>  GoodsWill</span></h5>
@@ -359,9 +365,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="col-md-4 products-right-grids-bottom-grid">
                     <div class="new-collections-grid1 products-right-grid1 animated wow slideInUp" data-wow-delay=".5s">
                         <div class="new-collections-grid1-image">
-                            <a href="single.html" class="product-image"><img src="${pageContext.request.contextPath}/static/images/wj1.jpg" alt=" " class="img-responsive"></a>
+                            <a href="${pageContext.request.contextPath}/views/single?goodsId=5" class="product-image"><img src="${pageContext.request.contextPath}/static/images/wj1.jpg" alt=" " class="img-responsive"></a>
                             <div class="new-collections-grid1-image-pos products-right-grids-pos">
-                                <a href="single.html">Quick View</a>
+                                <a href="${pageContext.request.contextPath}/views/single?goodsId=5">Quick View</a>
                             </div>
                             <div class="new-collections-grid1-right products-right-grids-pos-right">
                                 <div class="rating">
@@ -384,7 +390,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </div>
                             </div>
                         </div>
-                        <h4><a href="single.html">中性笔</a></h4>
+                        <h4><a href="${pageContext.request.contextPath}/views/single?goodsId=5">中性笔</a></h4>
                         <div class="simpleCart_shelfItem products-right-grid1-add-cart">
                             <p><i>￥20</i> <span class="item_price">￥10</span></p>
                         </div>
@@ -392,9 +398,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                     <div class="new-collections-grid1 products-right-grid1 animated wow slideInUp" data-wow-delay=".5s">
                         <div class="new-collections-grid1-image">
-                            <a href="single.html" class="product-image"><img src="${pageContext.request.contextPath}/static/images/wj2.jpg" alt=" " class="img-responsive"></a>
+                            <a href="${pageContext.request.contextPath}/views/single?goodsId=5" class="product-image"><img src="${pageContext.request.contextPath}/static/images/wj2.jpg" alt=" " class="img-responsive"></a>
                             <div class="new-collections-grid1-image-pos products-right-grids-pos">
-                                <a href="single.html">Quick View</a>
+                                <a href="${pageContext.request.contextPath}/views/single?goodsId=5">Quick View</a>
                             </div>
                             <div class="new-collections-grid1-right products-right-grids-pos-right">
                                 <div class="rating">
@@ -417,7 +423,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </div>
                             </div>
                         </div>
-                        <h4><a href="single.html">笔袋(中号)</a></h4>
+                        <h4><a href="${pageContext.request.contextPath}/views/single?goodsId=5">笔袋(中号)</a></h4>
                         <div class="simpleCart_shelfItem products-right-grid1-add-cart">
                             <p><i>￥25</i> <span class="item_price">￥15</span></p>
                         </div>
@@ -425,9 +431,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                     <div class="new-collections-grid1 products-right-grid1 animated wow slideInUp" data-wow-delay=".5s">
                         <div class="new-collections-grid1-image">
-                            <a href="single.html" class="product-image"><img src="${pageContext.request.contextPath}/static/images/wj3.jpg" alt=" " class="img-responsive"></a>
+                            <a href="${pageContext.request.contextPath}/views/single?goodsId=5" class="product-image"><img src="${pageContext.request.contextPath}/static/images/wj3.jpg" alt=" " class="img-responsive"></a>
                             <div class="new-collections-grid1-image-pos products-right-grids-pos">
-                                <a href="single.html">Quick View</a>
+                                <a href="${pageContext.request.contextPath}/views/single?goodsId=5">Quick View</a>
                             </div>
                             <div class="new-collections-grid1-right products-right-grids-pos-right">
                                 <div class="rating">
@@ -450,7 +456,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </div>
                             </div>
                         </div>
-                        <h4><a href="single.html">笔袋(小号)</a></h4>
+                        <h4><a href="${pageContext.request.contextPath}/views/single?goodsId=5">笔袋(小号)</a></h4>
                         <div class="simpleCart_shelfItem products-right-grid1-add-cart">
                             <p><i>￥20</i> <span class="item_price">￥10</span></p>
                         </div>
@@ -458,9 +464,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--
                     <div class="new-collections-grid1 products-right-grid1 animated wow slideInUp" data-wow-delay=".5s">
                         <div class="new-collections-grid1-image">
-                            <a href="single.html" class="product-image"><img src="${pageContext.request.contextPath}/static/images/19.jpg" alt=" " class="img-responsive"></a>
+                            <a href="${pageContext.request.contextPath}/views/single?goodsId=5" class="product-image"><img src="${pageContext.request.contextPath}/static/images/19.jpg" alt=" " class="img-responsive"></a>
                             <div class="new-collections-grid1-image-pos products-right-grids-pos">
-                                <a href="single.html">Quick View</a>
+                                <a href="${pageContext.request.contextPath}/views/single?goodsId=5">Quick View</a>
                             </div>
                             <div class="new-collections-grid1-right products-right-grids-pos-right">
                                 <div class="rating">
@@ -483,7 +489,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </div>
                             </div>
                         </div>
-                        <h4><a href="single.html">Formal Shirt</a></h4>
+                        <h4><a href="${pageContext.request.contextPath}/views/single?goodsId=5">Formal Shirt</a></h4>
                         <div class="simpleCart_shelfItem products-right-grid1-add-cart">
                             <p><i>$325</i> <span class="item_price">$250</span></p>
                         </div>
@@ -491,9 +497,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                     <div class="new-collections-grid1 products-right-grid1 animated wow slideInUp" data-wow-delay=".5s">
                         <div class="new-collections-grid1-image">
-                            <a href="single.html" class="product-image"><img src="${pageContext.request.contextPath}/static/images/21.jpg" alt=" " class="img-responsive"></a>
+                            <a href="${pageContext.request.contextPath}/views/single?goodsId=5" class="product-image"><img src="${pageContext.request.contextPath}/static/images/21.jpg" alt=" " class="img-responsive"></a>
                             <div class="new-collections-grid1-image-pos products-right-grids-pos">
-                                <a href="single.html">Quick View</a>
+                                <a href="${pageContext.request.contextPath}/views/single?goodsId=5">Quick View</a>
                             </div>
                             <div class="new-collections-grid1-right products-right-grids-pos-right">
                                 <div class="rating">
@@ -516,7 +522,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </div>
                             </div>
                         </div>
-                        <h4><a href="single.html">Casual Shoes</a></h4>
+                        <h4><a href="${pageContext.request.contextPath}/views/single?goodsId=5">Casual Shoes</a></h4>
                         <div class="simpleCart_shelfItem products-right-grid1-add-cart">
                             <p><i>$325</i> <span class="item_price">$250</span></p>
                         </div>
@@ -526,9 +532,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="col-md-4 products-right-grids-bottom-grid">
                     <div class="new-collections-grid1 products-right-grid1 animated wow slideInUp" data-wow-delay=".5s">
                         <div class="new-collections-grid1-image">
-                            <a href="single.html" class="product-image"><img src="${pageContext.request.contextPath}/static/images/wj6.jpg" alt=" " class="img-responsive"></a>
+                            <a href="${pageContext.request.contextPath}/views/single?goodsId=5" class="product-image"><img src="${pageContext.request.contextPath}/static/images/wj6.jpg" alt=" " class="img-responsive"></a>
                             <div class="new-collections-grid1-image-pos products-right-grids-pos">
-                                <a href="single.html">Quick View</a>
+                                <a href="${pageContext.request.contextPath}/views/single?goodsId=5">Quick View</a>
                             </div>
                             <div class="new-collections-grid1-right products-right-grids-pos-right">
                                 <div class="rating">
@@ -551,7 +557,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </div>
                             </div>
                         </div>
-                        <h4><a href="single.html">剪刀</a></h4>
+                        <h4><a href="${pageContext.request.contextPath}/views/single?goodsId=5">剪刀</a></h4>
                         <div class="simpleCart_shelfItem products-right-grid1-add-cart">
                             <p><i>￥12</i> <span class="item_price">￥8</span></p>
                         </div>
@@ -559,9 +565,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                     <div class="new-collections-grid1 products-right-grid1 animated wow slideInUp" data-wow-delay=".5s">
                         <div class="new-collections-grid1-image">
-                            <a href="single.html" class="product-image"><img src="${pageContext.request.contextPath}/static/images/wj7.jpg" alt=" " class="img-responsive"></a>
+                            <a href="${pageContext.request.contextPath}/views/single?goodsId=5" class="product-image"><img src="${pageContext.request.contextPath}/static/images/wj7.jpg" alt=" " class="img-responsive"></a>
                             <div class="new-collections-grid1-image-pos products-right-grids-pos">
-                                <a href="single.html">Quick View</a>
+                                <a href="${pageContext.request.contextPath}/views/single?goodsId=5">Quick View</a>
                             </div>
                             <div class="new-collections-grid1-right products-right-grids-pos-right">
                                 <div class="rating">
@@ -584,7 +590,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </div>
                             </div>
                         </div>
-                        <h4><a href="single.html">理发师剪刀</a></h4>
+                        <h4><a href="${pageContext.request.contextPath}/views/single?goodsId=5">理发师剪刀</a></h4>
                         <div class="simpleCart_shelfItem products-right-grid1-add-cart">
                             <p><i>￥50</i> <span class="item_price">￥35</span></p>
                         </div>
@@ -592,9 +598,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                     <div class="new-collections-grid1 products-right-grid1 animated wow slideInUp" data-wow-delay=".5s">
                         <div class="new-collections-grid1-image">
-                            <a href="single.html" class="product-image"><img src="${pageContext.request.contextPath}/static/images/wj9.jpg" alt=" " class="img-responsive"></a>
+                            <a href="${pageContext.request.contextPath}/views/single?goodsId=5" class="product-image"><img src="${pageContext.request.contextPath}/static/images/wj9.jpg" alt=" " class="img-responsive"></a>
                             <div class="new-collections-grid1-image-pos products-right-grids-pos">
-                                <a href="single.html">Quick View</a>
+                                <a href="${pageContext.request.contextPath}/views/single?goodsId=5">Quick View</a>
                             </div>
                             <div class="new-collections-grid1-right products-right-grids-pos-right">
                                 <div class="rating">
@@ -617,7 +623,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </div>
                             </div>
                         </div>
-                        <h4><a href="single.html">文件板</a></h4>
+                        <h4><a href="${pageContext.request.contextPath}/views/single?goodsId=5">文件板</a></h4>
                         <div class="simpleCart_shelfItem products-right-grid1-add-cart">
                             <p><i>￥10</i> <span class="item_price">￥5</span></p>
                         </div>
@@ -625,9 +631,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--
                     <div class="new-collections-grid1 products-right-grid1 animated wow slideInUp" data-wow-delay=".5s">
                         <div class="new-collections-grid1-image">
-                            <a href="single.html" class="product-image"><img src="${pageContext.request.contextPath}/static/images/7.jpg" alt=" " class="img-responsive"></a>
+                            <a href="${pageContext.request.contextPath}/views/single?goodsId=5" class="product-image"><img src="${pageContext.request.contextPath}/static/images/7.jpg" alt=" " class="img-responsive"></a>
                             <div class="new-collections-grid1-image-pos products-right-grids-pos">
-                                <a href="single.html">Quick View</a>
+                                <a href="${pageContext.request.contextPath}/views/single?goodsId=5">Quick View</a>
                             </div>
                             <div class="new-collections-grid1-right products-right-grids-pos-right">
                                 <div class="rating">
@@ -650,7 +656,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </div>
                             </div>
                         </div>
-                        <h4><a href="single.html">Formal Shirt</a></h4>
+                        <h4><a href="${pageContext.request.contextPath}/views/single?goodsId=5">Formal Shirt</a></h4>
                         <div class="simpleCart_shelfItem products-right-grid1-add-cart">
                             <p><i>$280</i> <span class="item_price">$250</span></p>
                         </div>
@@ -658,9 +664,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                     <div class="new-collections-grid1 products-right-grid1 animated wow slideInUp" data-wow-delay=".5s">
                         <div class="new-collections-grid1-image">
-                            <a href="single.html" class="product-image"><img src="${pageContext.request.contextPath}/static/images/22.jpg" alt=" " class="img-responsive"></a>
+                            <a href="${pageContext.request.contextPath}/views/single?goodsId=5" class="product-image"><img src="${pageContext.request.contextPath}/static/images/22.jpg" alt=" " class="img-responsive"></a>
                             <div class="new-collections-grid1-image-pos products-right-grids-pos">
-                                <a href="single.html">Quick View</a>
+                                <a href="${pageContext.request.contextPath}/views/single?goodsId=5">Quick View</a>
                             </div>
                             <div class="new-collections-grid1-right products-right-grids-pos-right">
                                 <div class="rating">
@@ -683,7 +689,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </div>
                             </div>
                         </div>
-                        <h4><a href="single.html">Casual Shoes</a></h4>
+                        <h4><a href="${pageContext.request.contextPath}/views/single?goodsId=5">Casual Shoes</a></h4>
                         <div class="simpleCart_shelfItem products-right-grid1-add-cart">
                             <p><i>$500</i> <span class="item_price">$480</span></p>
                         </div>
@@ -693,9 +699,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="col-md-4 products-right-grids-bottom-grid">
                     <div class="new-collections-grid1 products-right-grid1 animated wow slideInUp" data-wow-delay=".5s">
                         <div class="new-collections-grid1-image">
-                            <a href="single.html" class="product-image"><img src="${pageContext.request.contextPath}/static/images/wj10.jpg" alt=" " class="img-responsive"></a>
+                            <a href="${pageContext.request.contextPath}/views/single?goodsId=5" class="product-image"><img src="${pageContext.request.contextPath}/static/images/wj10.jpg" alt=" " class="img-responsive"></a>
                             <div class="new-collections-grid1-image-pos products-right-grids-pos">
-                                <a href="single.html">Quick View</a>
+                                <a href="${pageContext.request.contextPath}/views/single?goodsId=5">Quick View</a>
                             </div>
                             <div class="new-collections-grid1-right products-right-grids-pos-right">
                                 <div class="rating">
@@ -718,7 +724,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </div>
                             </div>
                         </div>
-                        <h4><a href="single.html">文件夹</a></h4>
+                        <h4><a href="${pageContext.request.contextPath}/views/single?goodsId=5">文件夹</a></h4>
                         <div class="simpleCart_shelfItem products-right-grid1-add-cart">
                             <p><i>￥8</i> <span class="item_price">￥6</span></p>
                         </div>
@@ -726,9 +732,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                     <div class="new-collections-grid1 products-right-grid1 animated wow slideInUp" data-wow-delay=".5s">
                         <div class="new-collections-grid1-image">
-                            <a href="single.html" class="product-image"><img src="${pageContext.request.contextPath}/static/images/wj12.jpg" alt=" " class="img-responsive"></a>
+                            <a href="${pageContext.request.contextPath}/views/single?goodsId=5" class="product-image"><img src="${pageContext.request.contextPath}/static/images/wj12.jpg" alt=" " class="img-responsive"></a>
                             <div class="new-collections-grid1-image-pos products-right-grids-pos">
-                                <a href="single.html">Quick View</a>
+                                <a href="${pageContext.request.contextPath}/views/single?goodsId=5">Quick View</a>
                             </div>
                             <div class="new-collections-grid1-right products-right-grids-pos-right">
                                 <div class="rating">
@@ -751,7 +757,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </div>
                             </div>
                         </div>
-                        <h4><a href="single.html">卷笔刀</a></h4>
+                        <h4><a href="${pageContext.request.contextPath}/views/single?goodsId=5">卷笔刀</a></h4>
                         <div class="simpleCart_shelfItem products-right-grid1-add-cart">
                             <p><i>￥15</i> <span class="item_price">￥10</span></p>
                         </div>
@@ -759,9 +765,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                     <div class="new-collections-grid1 products-right-grid1 animated wow slideInUp" data-wow-delay=".5s">
                         <div class="new-collections-grid1-image">
-                            <a href="single.html" class="product-image"><img src="${pageContext.request.contextPath}/static/images/wj13.jpg" alt=" " class="img-responsive"></a>
+                            <a href="${pageContext.request.contextPath}/views/single?goodsId=5" class="product-image"><img src="${pageContext.request.contextPath}/static/images/wj13.jpg" alt=" " class="img-responsive"></a>
                             <div class="new-collections-grid1-image-pos products-right-grids-pos">
-                                <a href="single.html">Quick View</a>
+                                <a href="${pageContext.request.contextPath}/views/single?goodsId=5">Quick View</a>
                             </div>
                             <div class="new-collections-grid1-right products-right-grids-pos-right">
                                 <div class="rating">
@@ -784,7 +790,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </div>
                             </div>
                         </div>
-                        <h4><a href="single.html">胶水</a></h4>
+                        <h4><a href="${pageContext.request.contextPath}/views/single?goodsId=5">胶水</a></h4>
                         <div class="simpleCart_shelfItem products-right-grid1-add-cart">
                             <p><i>￥6</i> <span class="item_price">￥4</span></p>
                         </div>
@@ -793,9 +799,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <!--
                     <div class="new-collections-grid1 products-right-grid1 animated wow slideInUp" data-wow-delay=".5s">
                         <div class="new-collections-grid1-image">
-                            <a href="single.html" class="product-image"><img src="${pageContext.request.contextPath}/static/images/7.jpg" alt=" " class="img-responsive"></a>
+                            <a href="${pageContext.request.contextPath}/views/single?goodsId=5" class="product-image"><img src="${pageContext.request.contextPath}/static/images/7.jpg" alt=" " class="img-responsive"></a>
                             <div class="new-collections-grid1-image-pos products-right-grids-pos">
-                                <a href="single.html">Quick View</a>
+                                <a href="${pageContext.request.contextPath}/views/single?goodsId=5">Quick View</a>
                             </div>
                             <div class="new-collections-grid1-right products-right-grids-pos-right">
                                 <div class="rating">
@@ -818,7 +824,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </div>
                             </div>
                         </div>
-                        <h4><a href="single.html">Formal Shirt</a></h4>
+                        <h4><a href="${pageContext.request.contextPath}/views/single?goodsId=5">Formal Shirt</a></h4>
                         <div class="simpleCart_shelfItem products-right-grid1-add-cart">
                             <p><i>$280</i> <span class="item_price">$250</span></p>
                         </div>
@@ -826,9 +832,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                     <div class="new-collections-grid1 products-right-grid1 animated wow slideInUp" data-wow-delay=".5s">
                         <div class="new-collections-grid1-image">
-                            <a href="single.html" class="product-image"><img src="${pageContext.request.contextPath}/static/images/22.jpg" alt=" " class="img-responsive"></a>
+                            <a href="${pageContext.request.contextPath}/views/single?goodsId=5" class="product-image"><img src="${pageContext.request.contextPath}/static/images/22.jpg" alt=" " class="img-responsive"></a>
                             <div class="new-collections-grid1-image-pos products-right-grids-pos">
-                                <a href="single.html">Quick View</a>
+                                <a href="${pageContext.request.contextPath}/views/single?goodsId=5">Quick View</a>
                             </div>
                             <div class="new-collections-grid1-right products-right-grids-pos-right">
                                 <div class="rating">
@@ -851,7 +857,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </div>
                             </div>
                         </div>
-                        <h4><a href="single.html">Casual Shoes</a></h4>
+                        <h4><a href="${pageContext.request.contextPath}/views/single?goodsId=5">Casual Shoes</a></h4>
                         <div class="simpleCart_shelfItem products-right-grid1-add-cart">
                             <p><i>$500</i> <span class="item_price">$480</span></p>
                         </div>
@@ -924,11 +930,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="clearfix"> </div>
         </div>
         <div class="footer-logo animated wow slideInUp" data-wow-delay=".5s">
-            <h2><a href="${pageContext.request.contextPath}/index.jsp">GoodsWill <span>shop anywhere</span></a></h2>
+            <h2><a href="${pageContext.request.contextPath}/views/index">GoodsWill <span>shop anywhere</span></a></h2>
         </div>
         <div class="copy-right animated wow slideInUp" data-wow-delay=".5s">
             <p>Copyright &copy; 2018.Company name All rights reserved.
-                <a href="${pageContext.request.contextPath}/index.jsp" target="_blank" title="">GoodsWill</a>
+                <a href="${pageContext.request.contextPath}/views/index" target="_blank" title="">GoodsWill</a>
             </p>
         </div>
     </div>

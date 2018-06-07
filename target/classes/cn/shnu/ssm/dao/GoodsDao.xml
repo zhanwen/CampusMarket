@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.shnu.ssm.dao.GoodsDao">
+
+    <resultMap id="BaseResultMap" type="cn.shnu.ssm.pojo.Goods">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="studentNo" jdbcType="VARCHAR" property="studentNo"></result>
+        <result column="goodsName" jdbcType="VARCHAR" property="goodsName" ></result>
+        <result column="description" jdbcType="VARCHAR" property="description" ></result>
+        <result column="price" jdbcType="DOUBLE" property="price" ></result>
+        <result column="status" jdbcType="INTEGER" property="status" ></result>
+        <result column="cate" jdbcType="VARCHAR" property="cate" ></result>
+        <result column="imagepath" jdbcType="VARCHAR" property="imagepath" ></result>
+        <result column="goodsStatus" jdbcType="INTEGER" property="goodsStatus" ></result>
+        <result column="degree" jdbcType="INTEGER" property="degree" ></result>
+    </resultMap>
+
+
+
+    <select id="selectAll"  resultMap="BaseResultMap">
+        SELECT * FROM goods
+    </select>
+
+    <select id="selectByStudentNo" parameterType="string" resultMap="BaseResultMap">
+        SELECT * FROM goods WHERE studentNo=#{studentNo}
+    </select>
+
+    <select id="selectById" parameterType="int" resultMap="BaseResultMap">
+        SELECT * from goods WHERE id=#{id}
+    </select>
+
+    <select id="selectByStatus" parameterType="int" resultMap="BaseResultMap">
+        SELECT * FROM goods WHERE status =#{status}
+    </select>
+
+    <insert id="insertGoods" parameterType="cn.shnu.ssm.pojo.Goods">
+        INSERT INTO goods (`studentNo`,`goodsName`,`description`,`price`,`status`, `cate`, `imagepath`, `goodsStatus`,`degree`)
+        VALUES (#{studentNo}, #{goodsName}, #{description}, #{price}, #{status},#{cate}, #{imagepath}, #{goodsStatus}, #{degree});
+    </insert>
+
+    <update id="updateGoods" parameterType="cn.shnu.ssm.pojo.Goods">
+        UPDATE goods set goodsStatus=#{goodsStatus} WHERE id = #{id}
+    </update>
+
+
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

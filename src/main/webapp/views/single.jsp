@@ -1,3 +1,5 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,12 +36,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 	
 <body>
-<!-- header -->
-	<div class="header">
+<div class="header">
 	<div class="container">
 		<div class="logo-nav">
 			<div class="logo-nav-left animated wow zoomIn" data-wow-delay=".5s">
-				<h1><a href="index.html">GoodsWill <span>Shop anywhere</span></a></h1>
+				<h1><a href="${pageContext.request.contextPath}/views/index">GoodsWill <span>Shop anywhere</span></a></h1>
 			</div>
 			<div class="logo-nav-left1">
 				<nav class="navbar navbar-default">
@@ -54,7 +55,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 						<ul class="nav navbar-nav">
-							<li class="active"><a href="index.html" class="act">主页</a></li>
+							<li class="active"><a href="${pageContext.request.contextPath}/views/index" class="act">主页</a></li>
 							<!-- Mega Menu -->
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">商品分类 <b class="caret"></b></a>
@@ -63,33 +64,38 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<div class="col-sm-4">
 											<ul class="multi-column-dropdown">
 												<h6>图书书籍</h6>
-												<li><a href="books.html">教材</a></li>
-												<li><a href="tests.html.html">考试</a></li>
-												<li><a href="literature.html">艺术文学</a></li>
+												<li><a href="${pageContext.request.contextPath}/views/books">教材</a></li>
+												<li><a href="${pageContext.request.contextPath}/views/tests">考试</a></li>
+												<li><a href="${pageContext.request.contextPath}/views/literature">艺术文学</a></li>
 											</ul>
 										</div>
 										<div class="col-sm-4">
 											<ul class="multi-column-dropdown">
 												<h6>日用百货</h6>
-												<li><a href="sports.html">运动类</a></li>
-												<li><a href="stationery.html">文具类</a></li>
-												<li><a href="life.html">生活类</a></li>
+												<li><a href="${pageContext.request.contextPath}/views/sports">运动类</a></li>
+												<li><a href="${pageContext.request.contextPath}/views/stationery">文具类</a></li>
+												<li><a href="${pageContext.request.contextPath}/views/life">生活类</a></li>
 											</ul>
 										</div>
 										<div class="col-sm-4">
 											<ul class="multi-column-dropdown">
 												<h6>娱乐</h6>
-												<li><a href="products.html">美妆</a></li>
-												<li><a href="products.html">电子产品</a></li>
-												<li><a href="products.html">Girl's Clothing</a></li>
+												<li><a href="${pageContext.request.contextPath}/views/beautymakeup">美妆</a></li>
+												<li><a href="${pageContext.request.contextPath}/views/electronicproducts">电子产品</a></li>
 											</ul>
 										</div>
 										<div class="clearfix"></div>
 									</div>
 								</ul>
 							</li>
-							<li class="dropdown">
-							<li ><a href="index.html">管理中心</a></li> <!--管里中心连接到 “管里中心页面”，能够修改商品状态-->
+							<li>
+								<c:if test="${sessionScope.user == null}">
+									<a href="${pageContext.request.contextPath}/views/login">管理中心</a>
+								</c:if>
+								<c:if test="${sessionScope.user != null}">
+									<a href="${pageContext.request.contextPath}/views/managecenter">管理中心</a>
+								</c:if>
+
 							</li>
 							<!--<li><a href="short-codes.html">个人中心</a></li>-->
 						</ul>
@@ -166,10 +172,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								min: 0,
 								max: 100000,
 								values: [ 10000, 60000 ],
-								slide: function( event, ui ) {  $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+								slide: function( event, ui ) {  $( "#amount" ).val( "" + ui.values[ 0 ] + " - " + ui.values[ 1 ] );
 								}
 					 });
-					$( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) + " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+					$( "#amount" ).val( "" + $( "#slider-range" ).slider( "values", 0 ) + " - " + $( "#slider-range" ).slider( "values", 1 ) );
 
 
 						});//]]>
@@ -213,14 +219,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="col-md-5 single-right-left animated wow slideInUp" data-wow-delay=".5s">
 					<div class="flexslider">
 						<ul class="slides">
-							<li data-thumb="${pageContext.request.getContextPath()}/static/images/si.jpg">
-								<div class="thumb-image"> <img src="${pageContext.request.getContextPath()}/static/images/si.jpg" data-imagezoom="true" class="img-responsive"> </div>
+							<li data-thumb="${pageContext.request.getContextPath()}/static/upload/file/${goods.imagepath}">
+								<div class="thumb-image"> <img src="${pageContext.request.getContextPath()}/static/upload/file/${goods.imagepath}" data-imagezoom="true" class="img-responsive"> </div>
 							</li>
-							<li data-thumb="${pageContext.request.getContextPath()}/static/images/si1.jpg">
-								<div class="thumb-image"> <img src="${pageContext.request.getContextPath()}/static/images/si1.jpg" data-imagezoom="true" class="img-responsive"> </div>
+							<li data-thumb="${pageContext.request.getContextPath()}/static/upload/file/${goods.imagepath}">
+								<div class="thumb-image"> <img src="${pageContext.request.getContextPath()}/static/upload/file/${goods.imagepath}" data-imagezoom="true" class="img-responsive"> </div>
 							</li>
-							<li data-thumb="${pageContext.request.getContextPath()}/static/images/si2.jpg">
-								<div class="thumb-image"> <img src="${pageContext.request.getContextPath()}/static/images/si2.jpg" data-imagezoom="true" class="img-responsive"> </div>
+							<li data-thumb="${pageContext.request.getContextPath()}/static/upload/file/${goods.imagepath}">
+								<div class="thumb-image"> <img src="${pageContext.request.getContextPath()}/static/upload/file/${goods.imagepath}" data-imagezoom="true" class="img-responsive"> </div>
 							</li>
 						</ul>
 					</div>
@@ -240,32 +246,36 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div class="col-md-7 single-right-left simpleCart_shelfItem animated wow slideInRight" data-wow-delay=".5s">
 					<h3>深度学习</h3>
-					<h4><span class="item_price">&yen168.00</span></h4>
+					<h4><span class="item_price">&yen${goods.price}</span></h4>
 					<div class="rating1">
-						<span class="starRating" >
-							商品状态：（未出 / 已出）
+						<span class="" >
+							商品状态：<c:if test="${goods.goodsStatus == 0}">未出售</c:if>
+							<c:if test="${goods.goodsStatus == 1}">已出售</c:if>
 						</span>
 					</div>
 					<div class="description">
 						<h5><i>详情</i></h5>
-						<p>这是一本教科书，又不只是一本教科书。任何对深度学习感兴趣的读者，本书在很长一段时间里，都将是你能够获得
-							的最全面系统的资料，以及思考并真正推进深度学习产业应用、构建智能化社会框架的绝佳理论起点。</p>
+						<p>${goods.description}</p>
 					</div>
 					<div class="color-quality">
 						<div class="color-quality-left">
-							<h5>新旧程度 :（只显示文字，填充程度百分数） </h5>
+							<h5>新旧程度 : ${goods.degree} </h5>
 						</div>
 
 						<div class="clearfix"> </div>
 					</div>
 
 					<div class="occasional">
-						<h5>卖家联系方式 :</h5>
+						<h5>卖家联系方式1 手机号: ${user.phone}</h5>
 						<div class="clearfix"> </div>
 					</div>
-					<div class="occasion-cart">
-						<a class="item_add" href="#">确认购买 </a>
+					<div class="occasional2">
+						<h5>卖家联系方式2 微信号: ${user.weixin}</h5>
+						<div class="clearfix"> </div>
 					</div>
+					<%--<div class="occasion-cart">--%>
+						<%--<a class="item_add" href="#">确认购买 </a>--%>
+					<%--</div>--%>
 				</div>
 				<div class="clearfix"> </div>
 			</div>
