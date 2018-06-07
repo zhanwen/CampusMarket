@@ -42,6 +42,27 @@ public class User {
 
     private String manager;
 
+    private String phone;
+
+    private String weixin;
+
+
+    public String getWeixin() {
+        return weixin;
+    }
+
+    public void setWeixin(String weixin) {
+        this.weixin = weixin;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -185,4 +206,6 @@ public class User {
     public void setManager(String manager) {
         this.manager = manager;
     }
+
+
 }
