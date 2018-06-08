@@ -45,4 +45,15 @@ public class GoodsServiceImpl implements GoodsService{
     public void updateGoods(Goods goods) {
         goodsDao.updateGoods(goods);
     }
+
+    public List<Goods> selectByStatusAndStudentNo(int status, String studentNo) {
+        Goods goods = new Goods();
+        goods.setStatus(status);
+        goods.setStudentNo(studentNo);
+        return goodsDao.selectByStatusAndStudentNo(goods);
+    }
+
+    public void updateGoodsStatus(Goods goods) {
+        goodsDao.updateGoodsStatus(goods);
+    }
 }

@@ -21,6 +21,9 @@
         VALUES (#{studentNo}, #{username}, #{phone}, #{email}, #{weixin},#{password});
     </insert>
 
+    <select id="findManager" parameterType="cn.shnu.ssm.pojo.User" resultMap="BaseResultMap">
+        SELECT * FROM users where studentNo=#{studentNo} and password = #{password}
+    </select>
 
 
 

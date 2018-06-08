@@ -92,10 +92,11 @@ public class PageController {
     public ModelAndView managecenter(HttpServletRequest request)throws Exception{
         ModelAndView modelAndView = new ModelAndView();
         String status = request.getParameter("status");
+        User user = (User) request.getSession().getAttribute("user");
         if("".equals(status) || status == null) {
             status = "0";
         }
-        List<Goods> list = goodsService.selectByStatus(Integer.valueOf(status));
+        List<Goods> list = goodsService.selectByStatusAndStudentNo(Integer.valueOf(status), user.getStudentNo());
         modelAndView.addObject("status", status);
         modelAndView.addObject("goodsList", list);
         modelAndView.setViewName("managecenter");

@@ -19,4 +19,7 @@ public interface GoodsDao {
     void deleteGoods(int id);
     void updateGoods(Goods goods);
 
+    List<Goods> selectByStatusAndStudentNo(Goods goods);
+
+    void updateGoodsStatus(Goods goods);
 }

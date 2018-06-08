@@ -42,9 +42,13 @@
         UPDATE goods set goodsStatus=#{goodsStatus} WHERE id = #{id}
     </update>
 
+    <select id="selectByStatusAndStudentNo" parameterType="cn.shnu.ssm.pojo.Goods" resultMap="BaseResultMap">
+        SELECT * FROM goods WHERE studentNo=#{studentNo} AND status=#{status}
+    </select>
 
-
-
+    <update id="updateGoodsStatus" parameterType="cn.shnu.ssm.pojo.Goods">
+        UPDATE goods set status=#{status} WHERE id = #{id}
+    </update>
 </mapper>
 
 

@@ -152,7 +152,7 @@ public class GoodsController {
         goods.setGoodsStatus(Integer.valueOf(status));
         goodsService.updateGoods(goods);
 
-        modelAndView.setViewName("/views/managecenter?status=1");
+        modelAndView.setViewName("redirect:/views/managecenter");
         return modelAndView;
     }
 

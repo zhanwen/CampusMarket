@@ -43,14 +43,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
     <script language="JavaScript">
-        $(document).ready(function() {
-            //绑定下拉框change事件，当下来框改变时调用 SelectChange()方法
-            $("#checkGoodsStatus").change(function() { SelectChange(); });
-        })
+        // $(document).ready(function() {
+        //     //绑定下拉框change事件，当下来框改变时调用 SelectChange()方法
+        //     $("#checkGoodsStatus").change(function() { SelectChange(); });
+        // })
 
-        function SelectChange() {
+        function SelectChange(selectId) {
             //获取下拉框选中项的value属性值
-            var selectValue = $("#checkGoodsStatus").val();
+            var selectValue = $("#"+selectId).val();
+
             var twoText = selectValue.split(".");
             var status = twoText[0];
             var goodsId = twoText[1];
@@ -271,7 +272,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <c:if test="${goods.status == 1}">已审核</c:if>
                         </td>
                         <td class="invert">
-                            <select <c:if test="${goods.status == 0}">disabled</c:if> id="checkGoodsStatus" name="checkGoodsStatus">
+                            <select <c:if test="${goods.status == 0}">disabled</c:if> id="checkGoodsStatus${vs.index+1}" name="checkGoodsStatus${vs.index+1}" onchange="SelectChange('checkGoodsStatus${vs.index+1}')">
                                 <option value="0.${goods.id}" <c:if test="${goods.goodsStatus == 0}">selected</c:if>>未出售</option>
                                 <option value="1.${goods.id}" <c:if test="${goods.goodsStatus == 1}">selected</c:if>>已出售</option>
                             </select>

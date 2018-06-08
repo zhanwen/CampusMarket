@@ -133,11 +133,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <div class="header-right">
                 <div class="cart box_1">
-                    <a href="${pageContext.request.contextPath}/views/checkout">
+                    <a href="${pageContext.request.getContextPath()}/user/logout">
                         <li>
                             <i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>
                             <c:if test="${sessionScope.user == null}">
-                                <a href="${pageContext.request.contextPath}/views/login">登陆</a>
+                                <a href="${pageContext.request.contextPath()}/views/login">登陆</a>
                             </c:if>
                             <c:if test="${sessionScope.user != null}">
                                 <a href="${pageContext.request.contextPath}/views/managecenter">${sessionScope.user.username}</a>

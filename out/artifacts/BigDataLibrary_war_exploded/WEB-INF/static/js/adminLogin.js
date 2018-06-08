@@ -52,7 +52,7 @@ function loginCheck() {
     }
     var str = getRootPath_web();
     if(datas.result == "admin") {
-        window.location.href=str+"/admin/bWFuYWdlcjEyMw==";
+        window.location.href=str+"/admin/status";
         return false;
     }
 
