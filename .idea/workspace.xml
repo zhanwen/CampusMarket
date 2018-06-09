@@ -6,37 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c565a8f-9762-42c0-b3fa-9458b2183604" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/cn/shnu/ssm/controller/AdminController.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/login.jsp" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/manager.jsp" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BigDataLibrary_war_exploded/WEB-INF/classes/cn/shnu/ssm/controller/PageController.class" afterPath="$PROJECT_DIR$/out/artifacts/BigDataLibrary_war_exploded/WEB-INF/classes/cn/shnu/ssm/controller/PageController.class" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BigDataLibrary_war_exploded/WEB-INF/classes/cn/shnu/ssm/dao/GoodsDao.class" afterPath="$PROJECT_DIR$/out/artifacts/BigDataLibrary_war_exploded/WEB-INF/classes/cn/shnu/ssm/dao/GoodsDao.class" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BigDataLibrary_war_exploded/WEB-INF/classes/cn/shnu/ssm/dao/GoodsDao.xml" afterPath="$PROJECT_DIR$/out/artifacts/BigDataLibrary_war_exploded/WEB-INF/classes/cn/shnu/ssm/dao/GoodsDao.xml" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BigDataLibrary_war_exploded/WEB-INF/classes/cn/shnu/ssm/service/GoodsService.class" afterPath="$PROJECT_DIR$/out/artifacts/BigDataLibrary_war_exploded/WEB-INF/classes/cn/shnu/ssm/service/GoodsService.class" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BigDataLibrary_war_exploded/WEB-INF/classes/cn/shnu/ssm/service/impl/GoodsServiceImpl.class" afterPath="$PROJECT_DIR$/out/artifacts/BigDataLibrary_war_exploded/WEB-INF/classes/cn/shnu/ssm/service/impl/GoodsServiceImpl.class" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BigDataLibrary_war_exploded/WEB-INF/views/index.jsp" afterPath="$PROJECT_DIR$/out/artifacts/BigDataLibrary_war_exploded/WEB-INF/views/index.jsp" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BigDataLibrary_war_exploded/WEB-INF/views/managecenter.jsp" afterPath="$PROJECT_DIR$/out/artifacts/BigDataLibrary_war_exploded/WEB-INF/views/managecenter.jsp" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BigDataLibrary_war_exploded/views/index.jsp" afterPath="$PROJECT_DIR$/out/artifacts/BigDataLibrary_war_exploded/views/index.jsp" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BigDataLibrary_war_exploded/views/managecenter.jsp" afterPath="$PROJECT_DIR$/out/artifacts/BigDataLibrary_war_exploded/views/managecenter.jsp" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/shnu/ssm/controller/GoodsController.java" afterPath="$PROJECT_DIR$/src/main/java/cn/shnu/ssm/controller/GoodsController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/shnu/ssm/controller/PageController.java" afterPath="$PROJECT_DIR$/src/main/java/cn/shnu/ssm/controller/PageController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/shnu/ssm/dao/GoodsDao.java" afterPath="$PROJECT_DIR$/src/main/java/cn/shnu/ssm/dao/GoodsDao.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/shnu/ssm/service/GoodsService.java" afterPath="$PROJECT_DIR$/src/main/java/cn/shnu/ssm/service/GoodsService.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/shnu/ssm/service/impl/GoodsServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/cn/shnu/ssm/service/impl/GoodsServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/cn/shnu/ssm/dao/GoodsDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/cn/shnu/ssm/dao/GoodsDao.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/cn/shnu/ssm/dao/UserDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/cn/shnu/ssm/dao/UserDao.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/js/adminLogin.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/adminLogin.js" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/index.jsp" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/managecenter.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/managecenter.jsp" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cn/shnu/ssm/controller/PageController.class" afterPath="$PROJECT_DIR$/target/classes/cn/shnu/ssm/controller/PageController.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cn/shnu/ssm/dao/GoodsDao.class" afterPath="$PROJECT_DIR$/target/classes/cn/shnu/ssm/dao/GoodsDao.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cn/shnu/ssm/dao/GoodsDao.xml" afterPath="$PROJECT_DIR$/target/classes/cn/shnu/ssm/dao/GoodsDao.xml" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cn/shnu/ssm/service/GoodsService.class" afterPath="$PROJECT_DIR$/target/classes/cn/shnu/ssm/service/GoodsService.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cn/shnu/ssm/service/impl/GoodsServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/cn/shnu/ssm/service/impl/GoodsServiceImpl.class" />
-    </list>
+    <list default="true" id="1c565a8f-9762-42c0-b3fa-9458b2183604" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -102,8 +72,8 @@
       <file leaf-file-name="index.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/views/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
-              <caret line="142" column="74" lean-forward="false" selection-start-line="142" selection-start-column="74" selection-end-line="142" selection-end-column="74" />
+            <state relative-caret-position="271">
+              <caret line="144" column="29" lean-forward="true" selection-start-line="144" selection-start-column="29" selection-end-line="144" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -638,12 +608,12 @@
       <workItem from="1528181375714" duration="58000" />
       <workItem from="1528181478054" duration="755000" />
       <workItem from="1528332974370" duration="29747000" />
-      <workItem from="1528418781700" duration="7131000" />
+      <workItem from="1528418781700" duration="7594000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38683000" />
+    <option name="totallyTimeSpent" value="39146000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="36" y="23" width="1382" height="777" extended-state="0" />
@@ -660,7 +630,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2539007" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2539007" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2141844" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1074,8 +1044,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/views/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="142" column="74" lean-forward="false" selection-start-line="142" selection-start-column="74" selection-end-line="142" selection-end-column="74" />
+        <state relative-caret-position="271">
+          <caret line="144" column="29" lean-forward="true" selection-start-line="144" selection-start-column="29" selection-end-line="144" selection-end-column="29" />
           <folding />
         </state>
       </provider>
