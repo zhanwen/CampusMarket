@@ -49,6 +49,10 @@
     <update id="updateGoodsStatus" parameterType="cn.shnu.ssm.pojo.Goods">
         UPDATE goods set status=#{status} WHERE id = #{id}
     </update>
+
+    <select id="selectByStatusAndGoodsStatus" resultMap="BaseResultMap">
+        SELECT * FROM goods WHERE goodsStatus = 0 AND status = 1
+    </select>
 </mapper>
 
 

@@ -194,22 +194,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="categories animated wow slideInUp" data-wow-delay=".5s">
                 <h3>商品分类</h3>
                 <ul class="cate">
-                    <li><a href="${pageContext.request.contextPath}/views/books">图书书籍</a> <span>(33)</span></li>
+                    <li><a href="${pageContext.request.contextPath}/views/books">图书书籍</a> <span>(${bookList.size()+33})</span></li>
                     <ul>
-                        <li><a href="${pageContext.request.contextPath}/views/books">教材</a> <span>(15)</span></li>
-                        <li><a href="${pageContext.request.contextPath}/views/tests">考试</a> <span>(9)</span></li>
-                        <li><a href="${pageContext.request.contextPath}/views/literature">文学</a> <span>(9)</span></li>
+                        <li><a href="${pageContext.request.contextPath}/views/books">教材</a> <span></span></li>
+                        <li><a href="${pageContext.request.contextPath}/views/tests">考试</a> <span></span></li>
+                        <li><a href="${pageContext.request.contextPath}/views/literature">文学</a> <span></span></li>
                     </ul>
-                    <li><a href="${pageContext.request.contextPath}/views/sports">日用百货</a> <span>(36)</span></li>
+                    <li><a href="${pageContext.request.contextPath}/views/sports">日用百货</a> <span>(${storeList.size()+36})</span></li>
                     <ul>
-                        <li><a href="${pageContext.request.contextPath}/views/sports">运动类</a> <span>(12)</span></li>
-                        <li><a href="${pageContext.request.contextPath}/views/stationery">文具类</a> <span>(9)</span></li>
-                        <li><a href="${pageContext.request.contextPath}/views/life">生活类</a> <span>(15)</span></li>
+                        <li><a href="${pageContext.request.contextPath}/views/sports">运动类</a> <span></span></li>
+                        <li><a href="${pageContext.request.contextPath}/views/stationery">文具类</a> <span></span></li>
+                        <li><a href="${pageContext.request.contextPath}/views/life">生活类</a> <span></span></li>
                     </ul>
-                    <li><a href="${pageContext.request.contextPath}/views/beautymakeup">娱乐</a> <span>(24)</span></li>
+                    <li><a href="${pageContext.request.contextPath}/views/beautymakeup">娱乐</a> <span>(${amazeList.size()+24})</span></li>
                     <ul>
-                        <li><a href="${pageContext.request.contextPath}/views/beautymakeup">美妆</a> <span>(15)</span></li>
-                        <li><a href="${pageContext.request.contextPath}/views/electronicproducts">电子产品</a> <span>(9)</span></li>
+                        <li><a href="${pageContext.request.contextPath}/views/beautymakeup">美妆</a> <span></span></li>
+                        <li><a href="${pageContext.request.contextPath}/views/electronicproducts">电子产品</a> <span></span></li>
                     </ul>
                 </ul>
             </div>

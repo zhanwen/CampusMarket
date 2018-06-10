@@ -194,22 +194,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="categories animated wow slideInUp" data-wow-delay=".5s">
             <h3>商品分类</h3>
             <ul class="cate">
-                <li><a href="${pageContext.request.contextPath}/views/products">图书书籍</a> <span>(33)</span></li>
+                <li><a href="${pageContext.request.contextPath}/views/books">图书书籍</a> <span>(${bookList.size()+33})</span></li>
                 <ul>
-                    <li><a href="${pageContext.request.contextPath}/views/books">教材</a> <span>(15)</span></li>
-                    <li><a href="${pageContext.request.contextPath}/views/tests">考试</a> <span>(9)</span></li>
-                    <li><a href="${pageContext.request.contextPath}/views/literature">文学</a> <span>(9)</span></li>
+                    <li><a href="${pageContext.request.contextPath}/views/books">教材</a> <span></span></li>
+                    <li><a href="${pageContext.request.contextPath}/views/tests">考试</a> <span></span></li>
+                    <li><a href="${pageContext.request.contextPath}/views/literature">文学</a> <span></span></li>
                 </ul>
-                <li><a href="${pageContext.request.contextPath}/views/products">日用百货</a> <span>(36)</span></li>
+                <li><a href="${pageContext.request.contextPath}/views/sports">日用百货</a> <span>(${bookList.size()+36})</span></li>
                 <ul>
-                    <li><a href="${pageContext.request.contextPath}/views/sports">运动类</a> <span>(12)</span></li>
-                    <li><a href="${pageContext.request.contextPath}/views/stationery">文具类</a> <span>(9)</span></li>
-                    <li><a href="${pageContext.request.contextPath}/views/life">生活类</a> <span>(15)</span></li>
+                    <li><a href="${pageContext.request.contextPath}/views/sports">运动类</a> <span></span></li>
+                    <li><a href="${pageContext.request.contextPath}/views/stationery">文具类</a> <span></span></li>
+                    <li><a href="${pageContext.request.contextPath}/views/life">生活类</a> <span></span></li>
                 </ul>
-                <li><a href="${pageContext.request.contextPath}/views/products">娱乐</a> <span>(24)</span></li>
+                <li><a href="${pageContext.request.contextPath}/views/beautymakeup">娱乐</a> <span>(${bookList.size()+24})</span></li>
                 <ul>
-                    <li><a href="${pageContext.request.contextPath}/views/beautymakeup">美妆</a> <span>(15)</span></li>
-                    <li><a href="${pageContext.request.contextPath}/views/electronicproducts">电子产品</a> <span>(9)</span></li>
+                    <li><a href="${pageContext.request.contextPath}/views/beautymakeup">美妆</a> <span></span></li>
+                    <li><a href="${pageContext.request.contextPath}/views/electronicproducts">电子产品</a> <span></span></li>
                 </ul>
             </ul>
         </div>
@@ -364,10 +364,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="products-right-grids-bottom">
                 <div class="col-md-4 products-right-grids-bottom-grid">
                     <div class="new-collections-grid1 products-right-grid1 animated wow slideInUp" data-wow-delay=".5s">
+                        <c:forEach items="${bookList}" var="goods">
                         <div class="new-collections-grid1-image">
-                            <a href="${pageContext.request.contextPath}/views/single?goodsId=5" class="product-image"><img src="${pageContext.request.contextPath}/static/images/jc6.jpg" alt=" " class="img-responsive"></a>
+                            <a href="${pageContext.request.contextPath}/views/single?goodsId=${goods.id}" class="product-image"><img src="${pageContext.request.getContextPath()}/static/upload/file/${goods.imagepath}" alt=" " class="img-responsive"></a>
                             <div class="new-collections-grid1-image-pos products-right-grids-pos">
-                                <a href="${pageContext.request.contextPath}/views/single?goodsId=5">Quick View</a>
+                                <a href="${pageContext.request.contextPath}/views/single?goodsId=${goods.id}">Quick View</a>
                             </div>
                             <div class="new-collections-grid1-right products-right-grids-pos-right">
                                 <div class="rating">
@@ -390,11 +391,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </div>
                             </div>
                         </div>
-                        <h4><a href="${pageContext.request.contextPath}/views/single?goodsId=5">数据库系统概念</a></h4>
+                        <h4><a href="${pageContext.request.contextPath}/views/single?goodsId=${goods.id}">${goods.goodsName}</a></h4>
                         <div class="simpleCart_shelfItem products-right-grid1-add-cart">
-                            <p><i>￥150</i> <span class="item_price">￥80</span></p>
+                            <p><i>￥150</i> <span class="item_price">￥${goods.price}</span></p>
                         </div>
                     </div>
+                    </c:forEach>
 
                     <div class="new-collections-grid1 products-right-grid1 animated wow slideInUp" data-wow-delay=".5s">
                         <div class="new-collections-grid1-image">

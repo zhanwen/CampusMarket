@@ -21,4 +21,6 @@ public interface GoodsService {
     void updateGoods(Goods goods);
 
     void updateGoodsStatus(Goods goods);
+
+    List<Goods> selectByStatusAndGoodsStatus();
 }

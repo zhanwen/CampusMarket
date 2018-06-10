@@ -56,4 +56,8 @@ public class GoodsServiceImpl implements GoodsService{
     public void updateGoodsStatus(Goods goods) {
         goodsDao.updateGoodsStatus(goods);
     }
+
+    public List<Goods> selectByStatusAndGoodsStatus() {
+        return goodsDao.selectByStatusAndGoodsStatus();
+    }
 }

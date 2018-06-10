@@ -137,10 +137,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <li>
                             <i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>
                             <c:if test="${sessionScope.user == null}">
-                                <a href="${pageContext.request.contextPath()}/views/login">登陆</a>
+                                <a href="${pageContext.request.getContextPath()}/views/login">登陆</a>
                             </c:if>
                             <c:if test="${sessionScope.user != null}">
-                                <a href="${pageContext.request.contextPath}/views/managecenter">${sessionScope.user.username}</a>
+                                <a href="${pageContext.request.getContextPath()}/views/managecenter">${sessionScope.user.username}</a>
                             </c:if>
                         </li>
                     </a>
@@ -277,41 +277,45 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <a class="header-grid-right" href="${pageContext.request.contextPath}/views/books">更多 >></a>
             </h2>
 
-            <div class="col-md-3 new-collections-grid">
-                <div class="new-collections-grid1 animated wow slideInUp" data-wow-delay=".5s">
-                    <div class="new-collections-grid1-image">
-                        <a href="${pageContext.request.getContextPath()}/views/single?goodsId=5" class="product-image"><img src="${pageContext.request.getContextPath()}/static/images/jc1.jpg" alt=" " class="img-responsive" height="400"/></a>
-                        <div class="new-collections-grid1-image-pos">
-                            <a href="${pageContext.request.getContextPath()}/views/single?goodsId=5">Quick View</a>
-                        </div>
-                        <div class="new-collections-grid1-right">
-                            <div class="rating">
-                                <div class="rating-left">
-                                    <img src="${pageContext.request.getContextPath()}/static/images/2.png" alt=" " class="img-responsive" />
+
+            <c:forEach items="${bookList}" var="goods">
+                <div class="col-md-3 new-collections-grid">
+                    <div class="new-collections-grid1 animated wow slideInUp" data-wow-delay=".5s">
+                        <div class="new-collections-grid1-image">
+                            <a href="${pageContext.request.getContextPath()}/views/single?goodsId=${goods.id}" class="product-image"><img src="${pageContext.request.getContextPath()}/static/upload/file/${goods.imagepath}" alt=" " class="img-responsive" height="400"/></a>
+                            <div class="new-collections-grid1-image-pos">
+                                <a href="${pageContext.request.getContextPath()}/views/single?goodsId=${goods.id}">Quick View</a>
+                            </div>
+                            <div class="new-collections-grid1-right">
+                                <div class="rating">
+                                    <div class="rating-left">
+                                        <img src="${pageContext.request.getContextPath()}/static/images/2.png" alt=" " class="img-responsive" />
+                                    </div>
+                                    <div class="rating-left">
+                                        <img src="${pageContext.request.getContextPath()}/static/images/2.png" alt=" " class="img-responsive" />
+                                    </div>
+                                    <div class="rating-left">
+                                        <img src="${pageContext.request.getContextPath()}/static/images/1.png" alt=" " class="img-responsive" />
+                                    </div>
+                                    <div class="rating-left">
+                                        <img src="${pageContext.request.getContextPath()}/static/images/1.png" alt=" " class="img-responsive" />
+                                    </div>
+                                    <div class="rating-left">
+                                        <img src="${pageContext.request.getContextPath()}/static/images/1.png" alt=" " class="img-responsive" />
+                                    </div>
+                                    <div class="clearfix"> </div>
                                 </div>
-                                <div class="rating-left">
-                                    <img src="${pageContext.request.getContextPath()}/static/images/2.png" alt=" " class="img-responsive" />
-                                </div>
-                                <div class="rating-left">
-                                    <img src="${pageContext.request.getContextPath()}/static/images/1.png" alt=" " class="img-responsive" />
-                                </div>
-                                <div class="rating-left">
-                                    <img src="${pageContext.request.getContextPath()}/static/images/1.png" alt=" " class="img-responsive" />
-                                </div>
-                                <div class="rating-left">
-                                    <img src="${pageContext.request.getContextPath()}/static/images/1.png" alt=" " class="img-responsive" />
-                                </div>
-                                <div class="clearfix"> </div>
                             </div>
                         </div>
-                    </div>
-                    <h4><a href="${pageContext.request.getContextPath()}/views/single?goodsId=5">成本会计</a></h4>
-                    <p>教材类</p>
-                    <div class="new-collections-grid1-left simpleCart_shelfItem">
-                        <p><span class="item_price">￥15</span><a class="item_add" href="${pageContext.request.getContextPath()}/views/single?goodsId=5">立即查看 </a></p>
+                        <h4><a href="${pageContext.request.getContextPath()}/views/single?goodsId=${goods.id}">${goods.goodsName}</a></h4>
+                        <p>教材类</p>
+                        <div class="new-collections-grid1-left simpleCart_shelfItem">
+                            <p><span class="item_price">￥${goods.price}</span><a class="item_add" href="${pageContext.request.getContextPath()}/views/single?goodsId=${goods.id}">立即查看 </a></p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </c:forEach>
+
 
             <div class="col-md-3 new-collections-grid">
                 <div class="new-collections-grid1 animated wow slideInUp" data-wow-delay=".5s">
@@ -494,97 +498,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <p><span class="item_price">￥10</span><a class="item_add" href="${pageContext.request.getContextPath()}/views/single?goodsId=5">立即查看 </a></p>
                     </div>
                 </div>
-
             </div>
 
-            <div class="col-md-3 new-collections-grid">
-                <div class="new-collections-grid1 animated wow slideInUp" data-wow-delay=".5s">
-                    <div class="new-collections-grid1-image">
-                        <a href="${pageContext.request.getContextPath()}/views/single?goodsId=5" class="product-image"><img src="${pageContext.request.getContextPath()}/static/images/yswx1.jpg" alt=" " class="img-responsive" /></a>
-                        <div class="new-collections-grid1-image-pos">
-                            <a href="${pageContext.request.getContextPath()}/views/single?goodsId=5">Quick View</a>
-                        </div>
-                        <div class="new-collections-grid1-right">
-                            <div class="rating">
-                                <div class="rating-left">
-                                    <img src="${pageContext.request.getContextPath()}/static/images/2.png" alt=" " class="img-responsive" />
-                                </div>
-                                <div class="rating-left">
-                                    <img src="${pageContext.request.getContextPath()}/static/images/2.png" alt=" " class="img-responsive" />
-                                </div>
-                                <div class="rating-left">
-                                    <img src="${pageContext.request.getContextPath()}/static/images/2.png" alt=" " class="img-responsive" />
-                                </div>
-                                <div class="rating-left">
-                                    <img src="${pageContext.request.getContextPath()}/static/images/1.png" alt=" " class="img-responsive" />
-                                </div>
-                                <div class="rating-left">
-                                    <img src="${pageContext.request.getContextPath()}/static/images/1.png" alt=" " class="img-responsive" />
-                                </div>
-                                <div class="clearfix"> </div>
-                            </div>
-                        </div>
-                    </div>
-                    <h4><a href="${pageContext.request.getContextPath()}/views/single?goodsId=5">白洋淀纪事</a></h4>
-                    <p>艺术文学类</p>
-                    <div class="new-collections-grid1-left simpleCart_shelfItem">
-                        <p><span class="item_price">￥22</span><a class="item_add" href="${pageContext.request.getContextPath()}/views/single?goodsId=5">立即查看 </a></p>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="col-md-3 new-collections-grid">
-                <div class="new-collections-grid1 animated wow slideInUp" data-wow-delay=".5s">
-                    <div class="new-collections-grid1-image">
-                        <a href="${pageContext.request.getContextPath()}/views/single?goodsId=5" class="product-image"><img src="${pageContext.request.getContextPath()}/static/images/yswx2.jpg" alt=" " class="img-responsive" /></a>
-                        <div class="new-collections-grid1-image-pos">
-                            <a href="${pageContext.request.getContextPath()}/views/single?goodsId=5">Quick View</a>
-                        </div>
-                        <div class="new-collections-grid1-right">
-                            <div class="rating">
-                                <div class="rating-left">
-                                    <img src="${pageContext.request.getContextPath()}/static/images/2.png" alt=" " class="img-responsive" />
-                                </div>
-                                <div class="rating-left">
-                                    <img src="${pageContext.request.getContextPath()}/static/images/2.png" alt=" " class="img-responsive" />
-                                </div>
-                                <div class="rating-left">
-                                    <img src="${pageContext.request.getContextPath()}/static/images/1.png" alt=" " class="img-responsive" />
-                                </div>
-                                <div class="rating-left">
-                                    <img src="${pageContext.request.getContextPath()}/static/images/1.png" alt=" " class="img-responsive" />
-                                </div>
-                                <div class="rating-left">
-                                    <img src="${pageContext.request.getContextPath()}/static/images/1.png" alt=" " class="img-responsive" />
-                                </div>
-                                <div class="clearfix"> </div>
-                            </div>
-                        </div>
-                    </div>
-                    <h4><a href="${pageContext.request.getContextPath()}/views/single?goodsId=5">传统文学艺术赏析</a></h4>
-                    <p>艺术文学类</p>
-                    <div class="new-collections-grid1-left simpleCart_shelfItem">
-                        <p><span class="item_price">￥15</span><a class="item_add" href="${pageContext.request.getContextPath()}/views/single?goodsId=5">立即查看 </a></p>
-                    </div>
-                </div>
-            </div>
 
             <div class="clearfix"> </div>
         </div>
+
+
 
         <div class="new-collections-grids">
             <h2 class="animated wow zoomIn" data-wow-delay=".5s">
                 <em>日用百货</em>
                 <a class="header-grid-right" href="${pageContext.request.contextPath}/views/sports">更多 >></a>
             </h2>
-
+            <c:forEach items="${storeList}" var="goods">
             <div class="col-md-3 new-collections-grid">
                 <div class="new-collections-grid1 animated wow slideInUp" data-wow-delay=".5s">
                     <div class="new-collections-grid1-image">
-                        <a href="${pageContext.request.getContextPath()}/views/single?goodsId=5" class="product-image"><img src="${pageContext.request.getContextPath()}/static/images/sh17.jpg" alt=" " class="img-responsive" /></a>
+                        <a href="${pageContext.request.getContextPath()}/views/single?goodsId=${goods.id}" class="product-image"><img src="${pageContext.request.getContextPath()}/static/upload/file/${goods.imagepath}" alt=" " class="img-responsive" /></a>
                         <div class="new-collections-grid1-image-pos">
-                            <a href="${pageContext.request.getContextPath()}/views/single?goodsId=5">Quick View</a>
+                            <a href="${pageContext.request.getContextPath()}/views/single?goodsId=${goods.id}">Quick View</a>
                         </div>
                         <div class="new-collections-grid1-right">
                             <div class="rating">
@@ -607,14 +540,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </div>
                         </div>
                     </div>
-                    <h4><a href="${pageContext.request.getContextPath()}/views/single?goodsId=5">肥皂盒</a></h4>
+                    <h4><a href="${pageContext.request.getContextPath()}/views/single?goodsId=${goods.id}">${goods.goodsName}</a></h4>
                     <p>生活类</p>
                     <div class="new-collections-grid1-left simpleCart_shelfItem">
-                        <p><span class="item_price">￥3</span><a class="item_add" href="${pageContext.request.getContextPath()}/views/single?goodsId=5">立即查看 </a></p>
+                        <p><span class="item_price">￥${goods.price}</span><a class="item_add" href="${pageContext.request.getContextPath()}/views/single?goodsId=${goods.id}">立即查看 </a></p>
                     </div>
                 </div>
             </div>
 
+            </c:forEach>
             <div class="col-md-3 new-collections-grid">
                 <div class="new-collections-grid1 animated wow slideInUp" data-wow-delay=".5s">
                     <div class="new-collections-grid1-image">
@@ -734,13 +668,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <em>娱乐</em>
                 <a class="header-grid-right" href="${pageContext.request.contextPath}/views/beautymakeup.jsp">更多 >></a>
             </h2>
-
+            <c:forEach items="${amazeList}" var="goods">
             <div class="col-md-3 new-collections-grid">
                 <div class="new-collections-grid1 animated wow slideInUp" data-wow-delay=".5s">
                     <div class="new-collections-grid1-image">
-                        <a href="${pageContext.request.getContextPath()}/views/single?goodsId=5" class="product-image"><img src="${pageContext.request.getContextPath()}/static/images/yd2.jpg" alt=" " class="img-responsive" /></a>
+                        <a href="${pageContext.request.getContextPath()}/views/single?goodsId=${goods.id}" class="product-image"><img src="${pageContext.request.getContextPath()}/static/upload/file/${goods.imagepath}" alt=" " class="img-responsive" /></a>
                         <div class="new-collections-grid1-image-pos">
-                            <a href="${pageContext.request.getContextPath()}/views/single?goodsId=5">Quick View</a>
+                            <a href="${pageContext.request.getContextPath()}/views/single?goodsId=${goods.id}">Quick View</a>
                         </div>
                         <div class="new-collections-grid1-right">
                             <div class="rating">
@@ -763,13 +697,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </div>
                         </div>
                     </div>
-                    <h4><a href="${pageContext.request.getContextPath()}/views/single?goodsId=5">乒乓</a></h4>
+                    <h4><a href="${pageContext.request.getContextPath()}/views/single?goodsId=${goods.id}">${goods.goodsName}</a></h4>
                     <p>运动类</p>
                     <div class="new-collections-grid1-left simpleCart_shelfItem">
-                        <p><span class="item_price">￥50</span><a class="item_add" href="${pageContext.request.getContextPath()}/views/single?goodsId=5">立即查看 </a></p>
+                        <p><span class="item_price">￥${goods.price}</span><a class="item_add" href="${pageContext.request.getContextPath()}/views/single?goodsId=${goods.id}">立即查看 </a></p>
                     </div>
                 </div>
             </div>
+            </c:forEach>
 
             <div class="col-md-3 new-collections-grid">
                 <div class="new-collections-grid1 animated wow slideInUp" data-wow-delay=".5s">
